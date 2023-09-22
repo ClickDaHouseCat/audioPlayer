@@ -6,14 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/svg/icon.svg">
-    <title>Document</title>
+    <title>audioPlayer</title>
 </head>
 <body>
     <div class="wrapper">
+        <h1>audioPlayer</h1>
+        <h6>by ClickDaHouseCat</h6>
         <div class="player">
-            <div class="track t1"></div>
-            <div class="track t2"></div>
-            <div class="track t3"></div>
+            <div class="track t1" onclick="playDancin()"></div>
+            <div class="track t2" onclick="playRob()"></div>
+            <div class="track t3" onclick="playMoon()"></div>
+        </div>
+        <div class="controlPanel">
+            <div class="prev"><img src="./assets/svg/prev.svg" alt="prev"></div>
+            <div class="play"><img src="./assets/svg/playButton.svg" alt="play"></div>
+            <div class="pause"><img src="./assets/svg/pauseButton.svg" alt="pause"></div>
+            <div class="next"><img src="./assets/svg/next.svg" alt="next"></div>
+        </div>
+        <div class="volume">
+            <div><input class="volumeBar" type="range" value="40" min="0" max="100" step="1" class="progress"></div>
+            <div><img class="loud" src="./assets/svg/loudVolume.svg" alt="loud"></div>
+            <div><img class="low" src="./assets/svg/lowVolume.svg" alt="low"></div>
+            <div><img class="mute" src="./assets/svg/mute.svg" alt="mute"></div>
         </div>
     </div>
     <script src="script.js"></script>
