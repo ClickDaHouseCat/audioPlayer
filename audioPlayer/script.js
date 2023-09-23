@@ -52,51 +52,62 @@ mute.addEventListener('click',()=>{
 const dancin = document.querySelector('.t1')
 const rob = document.querySelector('.t2')
 const moon = document.querySelector('.t3')
+const prev = document.querySelector('.prev')
+const next = document.querySelector('.next')
+
 
 dancin.addEventListener('click', playDancin)
 rob.addEventListener('click', playRob)
 moon.addEventListener('click', playMoon)
 
 let currentAudio = null;
+let currentTrackIndex = -1; // Индекс текущего трека
+
+const tracks = [
+    './assets/music/Aaron Smith Ft. Luvli — Dancin (Krono Remix).mp3',
+    './assets/music/Rob Zombie — Superbeast.mp3',
+    './assets/music/TTM BAND — To the Moon.mp3'
+];
+
+function playTrack(index) {
+    if (currentAudio) {
+        currentAudio.pause();
+    }
+    currentTrackIndex = index;
+    const audio = new Audio(tracks[index]);
+    audio.currentTime = 0;
+    audio.volume = document.querySelector('.volumeBar').value / 100;
+    audio.play();
+    currentAudio = audio;
+}
+
+prev.addEventListener('click',playPrev)
+next.addEventListener('click',playNext)
 
 function playDancin() {
-    if (currentAudio) {
-        currentAudio.pause();
-    }
-    const audioDancin = new Audio('./assets/music/Aaron Smith Ft. Luvli — Dancin (Krono Remix).mp3')
-    audioDancin.currentTime = 0;
-    audioDancin.volume = document.querySelector('.volumeBar').value / 100; // Установка громкости
-    audioDancin.play();
-    currentAudio = audioDancin;
+    playTrack(0);
 }
-
 
 function playRob() {
-    if (currentAudio) {
-        currentAudio.pause();
-    }
-    const audioRob = new Audio('./assets/music/Rob Zombie — Superbeast.mp3')
-    audioRob.currentTime = 0;
-    audioRob.volume = document.querySelector('.volumeBar').value / 100; // Установка громкости
-    audioRob.play();
-    currentAudio = audioRob;
+    playTrack(1);
 }
-
 
 function playMoon() {
-    if (currentAudio) {
-        currentAudio.pause();
-    }
-    const audioMoon = new Audio('./assets/music/TTM BAND — To the Moon.mp3')
-    audioMoon.currentTime = 0;
-    audioMoon.volume = document.querySelector('.volumeBar').value / 100; // Установка громкости
-    audioMoon.play();
-    currentAudio = audioMoon;
+    playTrack(2);
 }
 
-// Добавление обработчика события input для ползунка громкости
+function playPrev() {
+    const prevTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+    playTrack(prevTrackIndex);
+}
+
+function playNext() {
+    const nextTrackIndex = (currentTrackIndex + 1) % tracks.length;
+    playTrack(nextTrackIndex);
+}
+
 document.querySelector('.volumeBar').addEventListener('input', function () {
     if (currentAudio) {
-        currentAudio.volume = this.value / 100; // Обновление громкости при изменении ползунка
+        currentAudio.volume = this.value / 100;
     }
 });
