@@ -9,6 +9,7 @@ body {
     background: url('./assets/cover/dancin.jpg') no-repeat center;
     background-size: cover;
     backdrop-filter: blur(5px);
+    transition: background-image 1s ease;
 }
 
 .wrapper{
@@ -86,6 +87,10 @@ h6{
     box-shadow: 2px 3px 29px 2px rgba(255, 255, 255, 0.72);
 }
 
+img {
+    cursor: pointer;
+}
+
 .controlPanel, .volume{
     max-width: 210px;
     width: 100%;
@@ -95,7 +100,7 @@ h6{
     backdrop-filter: blur(5px);
     position: absolute;
     margin: auto;
-    top: 25px;
+    top: 140px;
     right: 0;
     left: 0;
     bottom: 0;
@@ -115,8 +120,25 @@ h6{
     scale: 1.1;
 }
 
+.track-progress{
+    display: flex;
+    height: 50px;
+    background: white;
+    opacity: 0.8;
+    width: 700px;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: space-around;
+    top: 29px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    margin: auto;
+}
+
 .volume{
-    top: 140px;
+    top: 250px;
     align-items: center;
 }
 
@@ -124,6 +146,9 @@ h6{
     display: none;
 }
 
+.pause{
+    display: none;
+}
 
 .none {
     display: none;
@@ -131,4 +156,30 @@ h6{
 
 .block {
     display: block;
+}
+
+footer{
+    position: absolute;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    opacity: 0.5;
+}
+
+.github img{
+    height: 40px;
+    width: 40px;
+}
+
+.rsschool{
+    width: 80px;
+}
+
+.date{
+    font-family: roboto;
+    font-size: 20px;
 }

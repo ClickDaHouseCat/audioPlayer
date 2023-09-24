@@ -17,6 +17,13 @@
             <div class="track t2" onclick="playRob()"></div>
             <div class="track t3" onclick="playMoon()"></div>
         </div>
+        <div class="track-progress">
+            <div class="track-name">Текущий трек: Название трека</div>
+            <input class="trackBar" type="range" value="0" min="0" step="1" class="progress">
+            <div class="track-time">
+                <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+            </div>
+        </div>
         <div class="controlPanel">
             <div class="prev"><img src="./assets/svg/prev.svg" alt="prev"></div>
             <div class="play"><img src="./assets/svg/playButton.svg" alt="play"></div>
@@ -30,6 +37,11 @@
             <div><img class="mute" src="./assets/svg/mute.svg" alt="mute"></div>
         </div>
     </div>
+    <footer>
+        <div class="github"><a href="https://github.com/ClickDaHouseCat"><img src="./assets/svg/github-logo-svgrepo-com.svg" alt="ClickDaHouseCat"></a></div>
+        <div class="date">2023</div>
+        <div class="rsschool"><a href="https://rs.school/js-stage0/"><img src="./assets/svg/rs_school_js.svg" alt="rsschool"></a></div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
